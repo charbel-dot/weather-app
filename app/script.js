@@ -7,12 +7,9 @@ const weatherStatus = document.querySelector(".main-content-subtext");
 const URL =
   "https://api.open-meteo.com/v1/forecast?latitude=34.42&longitude=35.87&hourly=temperature_2m,weathercode";
 
-// update time for the page
+// Update time for the page
 const updateTime = 100;
-
-setInterval(() => {
-  return;
-}, updateTime);
+const apiUpdateTime = 1_800_000; // Every 30 mins update the data
 
 const fetchData = async () => {
   await fetch(URL)
@@ -21,9 +18,15 @@ const fetchData = async () => {
     .catch((err) => console.log(err));
 };
 
+// Fetch the data directly when the page has been loaded
 fetchData();
 
-// show data to the user
+// Refresh the data every 30 mins
+setInterval(() => {
+  fetchData();
+}, apiUpdateTime);
+
+// Show data to the user
 const showData = (data) => {
   let hours = new Date().getHours();
   let temperature = Math.ceil(data["hourly"]["temperature_2m"][hours]);
@@ -43,7 +46,7 @@ const showData = (data) => {
   weatherTempPlaceHolder.textContent = temperature;
 };
 
-// update the hour
+// Update the hour
 const displayTime = () => {
   const date = new Date();
 
