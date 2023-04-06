@@ -26,7 +26,7 @@ fetchData();
 // show data to the user
 const showData = (data) => {
   let hours = new Date().getHours();
-  let temperature = parseInt(data["hourly"]["temperature_2m"][hours]);
+  let temperature = Math.ceil(data["hourly"]["temperature_2m"][hours]);
 
   const weatherCodeObj = {
     0: "Fair",
