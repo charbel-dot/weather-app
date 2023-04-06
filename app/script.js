@@ -8,8 +8,9 @@ const URL =
   "https://api.open-meteo.com/v1/forecast?latitude=34.42&longitude=35.87&hourly=temperature_2m,weathercode";
 
 // Update time for the page
-const updateTime = 100;
-const apiUpdateTime = 1_800_000; // Every 30 mins update the data
+const updateTime = 100; // in milliseconds
+const updateTimeInMin = 30;
+const apiUpdateTime = updateTimeInMin * 60 * 1000; // Every 30 mins update the data (convert to milliseconds)
 
 const fetchData = async () => {
   await fetch(URL)
