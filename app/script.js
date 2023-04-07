@@ -5,7 +5,7 @@ const weatherStatus = document.querySelector(".main-content-subtext");
 
 // Weather API URL for getting the data to the app
 const URL =
-  "https://api.open-meteo.com/v1/forecast?latitude=34.42&longitude=35.87&hourly=temperature_2m,weathercode";
+  "https://api.open-meteo.com/v1/forecast?latitude=34.42&longitude=35.88&hourly=temperature_2m,weathercode";
 
 // Update time for the page
 const updateTime = 100; // in milliseconds
