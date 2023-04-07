@@ -69,3 +69,15 @@ main .card .main-content .main-content-subtext {
   font-size: 1.2rem;
   color: grey;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main .card {
+    width: 80vw;
+    height: 55vh;
+  }
+
+  main .card .main-content {
+    height: 35vh;
+  }
+}
