@@ -12,8 +12,8 @@ const updateTime = 100; // in milliseconds
 const updateTimeInMin = 30;
 const apiUpdateTime = updateTimeInMin * 60 * 1000; // Every 30 mins update the data (convert to milliseconds)
 
-const fetchData = async () => {
-  await fetch(URL)
+const fetchData = () => {
+  fetch(URL)
     .then((response) => response.json())
     .then((data) => showData(data))
     .catch((err) => console.log(err));
@@ -23,9 +23,7 @@ const fetchData = async () => {
 fetchData();
 
 // Refresh the data every 30 mins
-setInterval(() => {
-  fetchData();
-}, apiUpdateTime);
+setInterval(fetchData, apiUpdateTime);
 
 // Show data to the user
 const showData = (data) => {
@@ -50,7 +48,6 @@ const showData = (data) => {
 // Update the hour
 const displayTime = () => {
   const date = new Date();
-
   const weekday = [
     "Sunday",
     "Monday",
@@ -60,6 +57,7 @@ const displayTime = () => {
     "Friday",
     "Saturday",
   ];
+
   let day = weekday[date.getDay()];
   dayPlaceHolder.textContent = day;
 
@@ -74,6 +72,4 @@ const displayTime = () => {
 };
 
 // Update time
-setInterval(() => {
-  displayTime();
-}, updateTime);
+setInterval(displayTime, updateTime);
