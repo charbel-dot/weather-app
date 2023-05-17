@@ -3,7 +3,7 @@ const hourPlaceHolder = document.querySelector(".hour");
 const dayPlaceHolder = document.querySelector(".day");
 const weatherStatus = document.querySelector(".main-content-subtext");
 
-// Weather API URL for getting the data to the app
+// Weather API URL for getting data to the app
 const URL =
   "https://api.open-meteo.com/v1/forecast?latitude=34.42&longitude=35.88&hourly=temperature_2m,weathercode";
 
@@ -19,13 +19,13 @@ const fetchData = () => {
     .catch((err) => console.log(err));
 };
 
-// Fetch the data directly when the page has been loaded
+// Fetch data directly when page has been loaded
 fetchData();
 
-// Refresh the data every 30 mins
+// Refresh data every 30 mins
 setInterval(fetchData, apiUpdateTime);
 
-// Show data to the user
+// Show data to user
 const showData = (data) => {
   let hours = new Date().getHours();
   let temperature = Math.ceil(data["hourly"]["temperature_2m"][hours]);
@@ -40,12 +40,12 @@ const showData = (data) => {
 
   let weatherCode = weatherCodeObj[data["hourly"]["weathercode"][hours]];
 
-  // Show content on the page
+  // Show content on page
   weatherStatus.textContent = weatherCode;
   weatherTempPlaceHolder.textContent = temperature;
 };
 
-// Update the hour
+// Update hour
 const displayTime = () => {
   const date = new Date();
   const weekday = [
