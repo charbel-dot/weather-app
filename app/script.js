@@ -10,7 +10,7 @@ const URL =
 // Update time for the page
 const updateTime = 100; // in milliseconds
 const updateTimeInMin = 30;
-const apiUpdateTime = updateTimeInMin * 60 * 1000; // Every 30 mins update the data (convert to milliseconds)
+const apiUpdateTime = updateTimeInMin * 60 * 1000; // Every 30 mins update data (convert to milliseconds)
 
 const fetchData = () => {
   fetch(URL)
