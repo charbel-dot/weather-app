@@ -74,6 +74,7 @@ const displayTime = () => {
 // Update time
 setInterval(displayTime, updateTime);
 
+/* Get GeoLocation of user
 const options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -94,3 +95,4 @@ const error = (err) => {
 };
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+*/
